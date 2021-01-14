@@ -58,51 +58,65 @@ public class ScannerController {
 		String name;
 		int age;
 		String jobTitle;
+		boolean bool = true;
 		
-		System.out.println("\nWhat method would you like to use?\rCREATE\rLIST\rSEARCH");
 		
-		result = Runner.input.nextLine();
-		
-		switch(result) {
-			case "CREATE":
-				
-				System.out.println("\nCREATE\rEnter Name: ");
-				result = Runner.input.nextLine();
-				name = result;
-
-				System.out.println("Enter Age: ");
-				result = Runner.input.nextLine();
-				age = Integer.parseInt(result);
-				
-
-				System.out.println("Enter Job Title: ");
-				result = Runner.input.nextLine();
-				jobTitle = result;
-				
-				Person placeholderPerson = new Person(name, age, jobTitle);
-
-				System.out.println("Created person:\r" + placeholderPerson);
-				people.addPeople(placeholderPerson);
-				
-				break;
-				
-			case "LIST":
-				System.out.println("\nLIST\rPeople:");
-				people.printList();
-				break;
-			case "SEARCH":
-				System.out.println("\nSEARCH\rEnter Name: ");
-				result = Runner.input.nextLine();
-				name = result;
-				people.findPerson(name);
-				break;
-			default:
-				System.out.println("unknown entry");
-				break;
+		while(bool) {
+			
+			System.out.println("\nWhat method would you like to use?\rCREATE\rLIST\rSEARCH\rEXIT");
+			
+			result = Runner.input.nextLine();
+			
+			switch(result) {
+				case "CREATE":
+					
+					System.out.println("\nCREATE\rEnter Name: ");
+					result = Runner.input.nextLine();
+					name = result;
+	
+					System.out.println("Enter Age: ");
+					result = Runner.input.nextLine();
+					age = Integer.parseInt(result);
+					
+	
+					System.out.println("Enter Job Title: ");
+					result = Runner.input.nextLine();
+					jobTitle = result;
+					
+					Person placeholderPerson = new Person(name, age, jobTitle);
+	
+					System.out.println("Created person:\r" + placeholderPerson);
+					people.addPeople(placeholderPerson);
+					
+					break;
+					
+				case "LIST":
+					System.out.println("\nLIST\rPeople:");
+					people.printList();
+					break;
+				case "SEARCH":
+					System.out.println("\nSEARCH\rEnter Name: ");
+					result = Runner.input.nextLine();
+					name = result;
+					people.findPerson(name);
+					break;
+				case "EXIT":
+					System.out.println("\rclosing down");
+					bool=false;
+					break;
+				default:
+					System.out.println("unknown entry");
+					break;
+			}
+			
+			
 		}
+		
+		
 	
 	}
 
 }
+
 
 ```
